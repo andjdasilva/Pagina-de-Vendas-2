@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meu Primeiro Caminho de Oração em Família</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --roxo:#6C4DFF;--rosa:#FF8FCF;--amarelo:#FFD84D;
+  --azul:#8ED8FF;--verde:#5DDC8A;--roxo-prof:#2E1B66;
+  --laranja:#FF9D5C;--creme:#FFF8F0;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Nunito',sans-serif;background:#0a0618;color:white;overflow-x:hidden;}
+
+/* ===== UTILITÁRIOS ===== */
+.container{max-width:720px;margin:0 auto;padding:0 24px;}
+.container-wide{max-width:960px;margin:0 auto;padding:0 24px;}
+.grad-text{background:linear-gradient(135deg,var(--amarelo),var(--rosa));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.grad-text-roxo{background:linear-gradient(135deg,#a78bff,var(--rosa));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+/* ===== FUNDO GLOBAL ===== */
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 90% 50% at 15% 5%,rgba(108,77,255,0.28) 0%,transparent 55%),
+    radial-gradient(ellipse 60% 40% at 85% 15%,rgba(255,143,207,0.18) 0%,transparent 50%),
+    radial-gradient(ellipse 70% 60% at 50% 90%,rgba(108,77,255,0.15) 0%,transparent 60%);
+}
+.stars-layer{position:fixed;inset:0;z-index:0;pointer-events:none;}
+.star{position:absolute;background:white;border-radius:50%;animation:twinkle var(--d,3s) ease-in-out infinite alternate;}
+@keyframes twinkle{from{opacity:.08;transform:scale(.7)}to{opacity:.7;transform:scale(1.3)}}
+
+/* ===== HEADER / TOPBAR ===== */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(10,6,24,0.7);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.header-brand{font-family:'Baloo 2',cursive;font-weight:800;font-size:0.95rem;color:white;display:flex;align-items:center;gap:8px;}
+.header-brand span{color:var(--amarelo);}
+.header-cta{background:linear-gradient(135deg,var(--roxo),#9B7AFF);color:white;font-family:'Baloo 2',cursive;font-weight:700;font-size:0.85rem;padding:9px 22px;border-radius:50px;text-decoration:none;transition:all .2s;box-shadow:0 4px 20px rgba(108,77,255,0.4);}
+.header-cta:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(108,77,255,0.6);}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;z-index:1;
+  padding:140px 24px 80px;
+  text-align:center;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(93,220,138,0.12);border:1px solid rgba(93,220,138,0.35);
+  color:#5DDC8A;font-family:'Baloo 2',cursive;font-weight:700;font-size:0.78rem;
+  padding:6px 18px;border-radius:50px;letter-spacing:.5px;
+  margin-bottom:28px;animation:fadeUp .6s ease both;
+}
+.hero h1{
+  font-family:'Baloo 2',cursive;font-size:clamp(2.2rem,6vw,3.4rem);font-weight:800;
+  line-height:1.12;margin-bottom:20px;
+  animation:fadeUp .6s ease both .1s;
+}
+.hero-sub{
+  font-size:clamp(1rem,2.5vw,1.15rem);color:rgba(255,255,255,0.65);
+  line-height:1.8;max-width:560px;margin:0 auto 40px;
+  animation:fadeUp .6s ease both .2s;
+}
+.hero-buttons{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;animation:fadeUp .6s ease both .3s;}
+.btn-hero{
+  display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,var(--roxo),#9B7AFF);
+  color:white;font-family:'Baloo 2',cursive;font-weight:800;font-size:1.1rem;
+  padding:18px 40px;border-radius:18px;text-decoration:none;
+  transition:all .3s;box-shadow:0 6px 30px rgba(108,77,255,0.5);
+  border:none;cursor:pointer;
+  animation:pulseBtn 2.5s ease-out infinite 2s;
+}
+@keyframes pulseBtn{0%{box-shadow:0 0 0 0 rgba(108,77,255,.6)}70%{box-shadow:0 0 0 16px rgba(108,77,255,0)}100%{box-shadow:0 0 0 0 rgba(108,77,255,0)}}
+.btn-hero:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 10px 40px rgba(108,77,255,.7);}
+.btn-hero-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);
+  color:white;font-family:'Baloo 2',cursive;font-weight:700;font-size:1rem;
+  padding:18px 32px;border-radius:18px;text-decoration:none;transition:all .2s;
+  cursor:pointer;
+}
+.btn-hero-ghost:hover{background:rgba(255,255,255,0.12);}
+.hero-hint{font-size:.78rem;color:rgba(255,255,255,.3);margin-top:14px;animation:fadeUp .6s ease both .4s;}
+
+/* mockup do livro */
+.hero-mockup{
+  position:relative;z-index:1;max-width:520px;margin:56px auto 0;
+  animation:fadeUp .8s ease both .3s;
+}
+.mockup-device{
+  background:linear-gradient(160deg,#1a0f40,#0d0626);
+  border:1px solid rgba(255,255,255,0.1);border-radius:24px;
+  padding:20px;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 60px rgba(108,77,255,.2);
+  overflow:hidden;position:relative;
+}
+.mockup-device::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--roxo),var(--rosa),var(--amarelo));}
+.mockup-bar{display:flex;gap:6px;margin-bottom:14px;padding:0 2px;}
+.mockup-dot{width:10px;height:10px;border-radius:50%;}
+.mockup-screen{background:linear-gradient(160deg,#2E1B66,#6C4DFF 60%,#FF8FCF 100%);border-radius:14px;padding:28px 24px;text-align:center;min-height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative;overflow:hidden;}
+.mockup-screen::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(255,216,77,.15),transparent 60%);}
+.mockup-title{font-family:'Baloo 2',cursive;font-size:1.3rem;font-weight:800;color:var(--amarelo);text-shadow:0 2px 12px rgba(0,0,0,.3);position:relative;z-index:1;}
+.mockup-sub{font-size:.78rem;color:rgba(255,255,255,.7);position:relative;z-index:1;}
+.mockup-badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;position:relative;z-index:1;}
+.mockup-badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:4px 12px;font-size:.72rem;color:white;font-weight:700;}
+
+/* ===== SEÇÃO PROBLEMA ===== */
+.section-problema{position:relative;z-index:1;padding:80px 24px;}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:640px;margin:0 auto 40px;}
+.problem-card{
+  background:rgba(255,80,80,.06);border:1px solid rgba(255,80,80,.15);
+  border-radius:16px;padding:18px;display:flex;gap:12px;align-items:flex-start;
+}
+.problem-card .p-icon{font-size:1.5rem;flex-shrink:0;}
+.problem-card p{font-size:.88rem;color:rgba(255,255,255,.75);line-height:1.6;}
+.problem-transicao{
+  background:linear-gradient(135deg,rgba(108,77,255,.15),rgba(255,143,207,.1));
+  border:1px solid rgba(108,77,255,.25);border-radius:20px;
+  padding:28px 32px;max-width:560px;margin:0 auto;text-align:center;
+}
+.problem-transicao p{font-size:1.05rem;color:rgba(255,255,255,.85);line-height:1.8;}
+.problem-transicao strong{color:var(--amarelo);}
+
+/* ===== SEÇÃO SOLUÇÃO ===== */
+.section-solucao{position:relative;z-index:1;padding:80px 24px;text-align:center;}
+.section-title{font-family:'Baloo 2',cursive;font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;margin-bottom:10px;line-height:1.2;}
+.section-sub{font-size:.95rem;color:rgba(255,255,255,.55);margin-bottom:48px;line-height:1.6;}
+.recursos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px;}
+.recurso-card{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);
+  border-radius:18px;padding:24px 18px;text-align:center;
+  transition:all .25s;cursor:default;
+}
+.recurso-card:hover{background:rgba(255,255,255,.08);transform:translateY(-4px);border-color:rgba(108,77,255,.3);}
+.recurso-card .r-icon{font-size:2rem;margin-bottom:10px;display:block;}
+.recurso-card .r-title{font-family:'Baloo 2',cursive;font-weight:700;font-size:.9rem;color:white;margin-bottom:5px;}
+.recurso-card .r-desc{font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.5;}
+
+/* ===== SEÇÃO PÚBLICO ===== */
+.section-publico{position:relative;z-index:1;padding:80px 24px;}
+.publico-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:640px;margin:0 auto;}
+.publico-card{
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;padding:22px;display:flex;gap:14px;align-items:flex-start;transition:all .2s;
+}
+.publico-card:hover{background:rgba(108,77,255,.12);border-color:rgba(108,77,255,.3);}
+.publico-card .p-emoji{font-size:2rem;flex-shrink:0;}
+.publico-card .p-content .p-title{font-family:'Baloo 2',cursive;font-weight:700;font-size:.92rem;color:white;margin-bottom:4px;}
+.publico-card .p-content p{font-size:.8rem;color:rgba(255,255,255,.55);line-height:1.5;}
+
+/* ===== SEÇÃO CONTEÚDO ===== */
+.section-conteudo{position:relative;z-index:1;padding:80px 24px;background:rgba(255,255,255,.02);border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05);}
+.conteudo-lista{max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:10px;}
+.conteudo-item{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);
+  border-radius:14px;padding:14px 18px;
+  display:flex;align-items:center;gap:14px;
+  transition:all .2s;
+}
+.conteudo-item:hover{background:rgba(255,255,255,.07);}
+.conteudo-item .c-num{
+  background:linear-gradient(135deg,var(--roxo),var(--rosa));
+  width:32px;height:32px;border-radius:9px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Baloo 2',cursive;font-weight:800;font-size:.82rem;color:white;
+}
+.conteudo-item .c-text{font-size:.88rem;color:rgba(255,255,255,.8);line-height:1.4;}
+.conteudo-item .c-badge{margin-left:auto;background:rgba(255,216,77,.15);border:1px solid rgba(255,216,77,.25);color:var(--amarelo);font-size:.68rem;font-weight:700;padding:3px 9px;border-radius:20px;white-space:nowrap;flex-shrink:0;}
+
+/* ===== BÔNUS ===== */
+.section-bonus{position:relative;z-index:1;padding:80px 24px;text-align:center;}
+.bonus-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:600px;margin:0 auto;}
+.bonus-card{
+  background:linear-gradient(135deg,rgba(255,216,77,.08),rgba(255,143,207,.06));
+  border:1px solid rgba(255,216,77,.2);border-radius:18px;padding:24px 20px;
+  position:relative;overflow:hidden;
+}
+.bonus-card::before{content:'BÔNUS';position:absolute;top:12px;right:14px;background:var(--amarelo);color:var(--roxo-prof);font-family:'Baloo 2',cursive;font-weight:800;font-size:.65rem;padding:3px 8px;border-radius:20px;}
+.bonus-card .b-icon{font-size:2rem;margin-bottom:10px;display:block;}
+.bonus-card .b-title{font-family:'Baloo 2',cursive;font-weight:700;font-size:.9rem;color:white;margin-bottom:6px;}
+.bonus-card .b-desc{font-size:.78rem;color:rgba(255,255,255,.55);line-height:1.5;}
+
+/* ===== DEPOIMENTOS ===== */
+.section-depoi{position:relative;z-index:1;padding:80px 24px;}
+.depoi-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:680px;margin:0 auto;}
+.depoi-card{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  border-radius:20px;padding:24px;transition:all .2s;
+}
+.depoi-card:hover{background:rgba(255,255,255,.07);}
+.depoi-stars{color:var(--amarelo);font-size:.9rem;margin-bottom:10px;letter-spacing:2px;}
+.depoi-texto{font-size:.88rem;color:rgba(255,255,255,.8);line-height:1.75;font-style:italic;margin-bottom:16px;}
+.depoi-autor{display:flex;align-items:center;gap:10px;}
+.depoi-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.depoi-nome{font-weight:700;font-size:.82rem;color:white;}
+.depoi-detalhe{font-size:.72rem;color:rgba(255,255,255,.35);}
+
+/* ===== GARANTIA ===== */
+.section-garantia{position:relative;z-index:1;padding:60px 24px;}
+.garantia-box{
+  max-width:560px;margin:0 auto;
+  background:linear-gradient(135deg,rgba(93,220,138,.1),rgba(93,220,138,.05));
+  border:1px solid rgba(93,220,138,.25);border-radius:24px;
+  padding:36px 40px;text-align:center;
+}
+.garantia-icon{font-size:4rem;margin-bottom:16px;display:block;}
+.garantia-title{font-family:'Baloo 2',cursive;font-size:1.5rem;font-weight:800;color:white;margin-bottom:10px;}
+.garantia-text{font-size:.92rem;color:rgba(255,255,255,.65);line-height:1.8;}
+
+/* ===== PREÇO / CTA FINAL ===== */
+.section-preco{
+  position:relative;z-index:1;padding:80px 24px;text-align:center;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(108,77,255,.2),transparent 70%);
+}
+.preco-box{
+  max-width:520px;margin:0 auto;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+  border-radius:28px;padding:48px 40px;position:relative;overflow:hidden;
+}
+.preco-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--roxo),var(--rosa),var(--amarelo));}
+.preco-label{font-size:.8rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
+.preco-de{font-size:1rem;color:rgba(255,255,255,.3);text-decoration:line-through;margin-bottom:4px;}
+.preco-por{font-family:'Baloo 2',cursive;font-size:3.2rem;font-weight:800;color:var(--amarelo);line-height:1;margin-bottom:6px;}
+.preco-ou{font-size:.82rem;color:rgba(255,255,255,.4);margin-bottom:32px;}
+.preco-includes{display:flex;flex-direction:column;gap:8px;margin-bottom:32px;text-align:left;}
+.preco-item{display:flex;align-items:center;gap:10px;font-size:.88rem;color:rgba(255,255,255,.75);}
+.preco-item::before{content:'✓';color:var(--verde);font-weight:800;flex-shrink:0;}
+.btn-comprar{
+  display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+  background:linear-gradient(135deg,#FFD84D,#FFB830);color:var(--roxo-prof);
+  font-family:'Baloo 2',cursive;font-weight:800;font-size:1.15rem;
+  padding:20px 32px;border-radius:18px;text-decoration:none;
+  transition:all .3s;box-shadow:0 6px 30px rgba(255,216,77,.4);
+  border:none;cursor:pointer;
+}
+.btn-comprar:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 10px 40px rgba(255,216,77,.6);}
+.preco-seguranca{display:flex;justify-content:center;gap:20px;margin-top:18px;flex-wrap:wrap;}
+.seg-item{display:flex;align-items:center;gap:5px;font-size:.72rem;color:rgba(255,255,255,.3);}
+
+/* ===== FAQ ===== */
+.section-faq{position:relative;z-index:1;padding:80px 24px;}
+.faq-lista{max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:10px;}
+.faq-item{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);
+  border-radius:14px;overflow:hidden;
+}
+.faq-pergunta{
+  padding:16px 20px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;
+  font-weight:700;font-size:.9rem;color:white;transition:background .2s;user-select:none;
+}
+.faq-pergunta:hover{background:rgba(255,255,255,.04);}
+.faq-pergunta .faq-arrow{font-size:.8rem;transition:transform .3s;color:rgba(255,255,255,.4);}
+.faq-item.open .faq-arrow{transform:rotate(180deg);}
+.faq-resposta{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;}
+.faq-item.open .faq-resposta{max-height:200px;}
+.faq-resposta-inner{padding:0 20px 16px;font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.75;border-top:1px solid rgba(255,255,255,.06);}
+
+/* ===== FOOTER ===== */
+footer{
+  position:relative;z-index:1;padding:40px 24px;
+  border-top:1px solid rgba(255,255,255,.06);text-align:center;
+}
+.footer-brand{font-family:'Baloo 2',cursive;font-size:.9rem;color:rgba(255,255,255,.25);margin-bottom:8px;}
+.footer-brand span{color:rgba(255,255,255,.4);}
+.footer-love{font-size:.75rem;color:rgba(255,255,255,.15);}
+
+/* ===== SEÇÃO TÍTULOS ===== */
+.section-label{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(108,77,255,.15);border:1px solid rgba(108,77,255,.3);
+  color:#a78bff;font-family:'Baloo 2',cursive;font-weight:700;font-size:.75rem;
+  padding:5px 16px;border-radius:50px;letter-spacing:.5px;margin-bottom:16px;
+}
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:560px){
+  .recursos-grid{grid-template-columns:1fr 1fr;}
+  .problem-grid,.publico-grid,.bonus-grid,.depoi-grid{grid-template-columns:1fr;}
+  .preco-box{padding:36px 24px;}
+  .hero h1{font-size:2rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- ESTRELAS -->
+<div class="stars-layer" id="stars"></div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-brand">⭐ <span>IA.ndrea Studio</span></div>
+  <a href="https://pay.kiwify.com.br/nZBO9Ek" target="_blank" class="header-cta" target="_blank">Quero meu livro →</a>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">✨ Livro Digital Interativo para Famílias Cristãs</div>
+    <h1>Ensine seu filho a orar<br><span class="grad-text">em 5 minutos por dia</span></h1>
+    <p class="hero-sub">O guia prático e amoroso que transforma o momento da oração em um encontro sagrado entre pais, filhos e Deus — sem precisar ser perfeito para começar.</p>
+    <div class="hero-buttons">
+      <a href="https://pay.kiwify.com.br/nZBO9Ek" target="_blank" class="btn-hero" target="_blank">✨ Quero começar agora <span>→</span></a>
+      <a href="#conteudo" class="btn-hero-ghost">📖 Ver o conteúdo</a>
+    </div>
+    <p class="hero-hint">🔒 Acesso imediato · Funciona no celular e computador</p>
+  </div>
+
+  <!-- MOCKUP -->
+  <div class="hero-mockup container">
+    <div class="mockup-device">
+      <div class="mockup-bar">
+        <div class="mockup-dot" style="background:#ff5f56"></div>
+        <div class="mockup-dot" style="background:#ffbd2e"></div>
+        <div class="mockup-dot" style="background:#27c93f"></div>
+      </div>
+      <div class="mockup-screen">
+        <span style="font-size:2.8rem;position:relative;z-index:1;filter:drop-shadow(0 0 20px rgba(255,216,77,.6))">⭐</span>
+        <div class="mockup-title">Meu Primeiro Caminho<br>de Oração em Família</div>
+        <div class="mockup-sub">Livro Digital Interativo</div>
+        <div class="mockup-badges">
+          <span class="mockup-badge">🙏 40+ Orações</span>
+          <span class="mockup-badge">🎯 Quiz</span>
+          <span class="mockup-badge">🧠 Mapa Mental</span>
+          <span class="mockup-badge">✏️ Grifos</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROBLEMA ===== -->
+<section class="section-problema reveal">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:40px;">
+      <div class="section-label">💔 Você se identifica?</div>
+      <h2 class="section-title">Você quer criar uma rotina de oração,<br><span class="grad-text-roxo">mas trava em algum desses pontos…</span></h2>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card"><span class="p-icon">😔</span><p>Não sabe como começar ou acha que precisa saber muito sobre a Bíblia</p></div>
+      <div class="problem-card"><span class="p-icon">😩</span><p>Sua criança não para quieta e parece impossível criar qualquer rotina</p></div>
+      <div class="problem-card"><span class="p-icon">😰</span><p>Sente culpa por não ter ensinado isso antes e não sabe se ainda dá tempo</p></div>
+      <div class="problem-card"><span class="p-icon">🤷</span><p>Tenta orar com os filhos, mas não sabe o que falar nem quanto tempo durar</p></div>
+    </div>
+    <div class="problem-transicao">
+      <p>Se você se reconheceu em algum desses pontos, saiba que <strong>você não está sozinho</strong>. E a boa notícia é: isso tem solução — e ela é mais simples do que você imagina. 💜</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOLUÇÃO ===== -->
+<section class="section-solucao reveal">
+  <div class="container-wide">
+    <div class="section-label">✨ A solução</div>
+    <h2 class="section-title">Tudo que você precisa para criar<br><span class="grad-text">o hábito de oração em família</span></h2>
+    <p class="section-sub">Um livro digital que combina conteúdo, orações prontas, atividades e roteiros — tudo interativo, tudo no seu ritmo.</p>
+    <div class="recursos-grid">
+      <div class="recurso-card"><span class="r-icon">🙏</span><div class="r-title">40+ Orações Clicáveis</div><div class="r-desc">Abra uma oração com um clique e leia com seu filho agora mesmo</div></div>
+      <div class="recurso-card"><span class="r-icon">📖</span><div class="r-title">30 Páginas Interativas</div><div class="r-desc">Conteúdo organizado por faixa etária: 3-7 anos e 7-12 anos</div></div>
+      <div class="recurso-card"><span class="r-icon">🎨</span><div class="r-title">Atividades Lúdicas</div><div class="r-desc">Pote da Gratidão, Estrelinha da Oração, Desenho para Deus e mais</div></div>
+      <div class="recurso-card"><span class="r-icon">🎵</span><div class="r-title">Áudio Narrado</div><div class="r-desc">Boas-vindas em áudio real para você começar com leveza</div></div>
+      <div class="recurso-card"><span class="r-icon">🎯</span><div class="r-title">Quiz Interativo</div><div class="r-desc">Teste seus conhecimentos e acompanhe seu progresso no guia</div></div>
+      <div class="recurso-card"><span class="r-icon">🧠</span><div class="r-title">Mapa Mental Clicável</div><div class="r-desc">Visualize todo o conteúdo do livro de forma organizada</div></div>
+      <div class="recurso-card"><span class="r-icon">✏️</span><div class="r-title">Grifos + Resumo Auto</div><div class="r-desc">Grife os trechos mais importantes e gere seu resumo com 1 clique</div></div>
+      <div class="recurso-card"><span class="r-icon">🗓️</span><div class="r-title">Plano de 7 Dias</div><div class="r-desc">Roteiro dia a dia para você começar hoje mesmo, sem pressão</div></div>
+      <div class="recurso-card"><span class="r-icon">⏱️</span><div class="r-title">Roteiros de 5 e 10 min</div><div class="r-desc">Scripts prontos para a oração da noite — é só seguir o passo a passo</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PARA QUEM ===== -->
+<section class="section-publico reveal">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:40px;">
+      <div class="section-label">💜 Para quem é esse livro?</div>
+      <h2 class="section-title">Este guia foi feito<br><span class="grad-text">especialmente para você se…</span></h2>
+    </div>
+    <div class="publico-grid">
+      <div class="publico-card"><span class="p-emoji">👩‍👧</span><div class="p-content"><div class="p-title">Você é mãe ou pai</div><p>De crianças entre 3 e 12 anos e quer criar um lar com fé e amor</p></div></div>
+      <div class="publico-card"><span class="p-emoji">👴</span><div class="p-content"><div class="p-title">Você é avó ou avô</div><p>E quer transmitir a fé para os netos de forma amorosa e prática</p></div></div>
+      <div class="publico-card"><span class="p-emoji">👩‍🏫</span><div class="p-content"><div class="p-title">Você é educador cristão</div><p>E busca ferramentas para trabalhar a espiritualidade com as crianças</p></div></div>
+      <div class="publico-card"><span class="p-emoji">🙏</span><div class="p-content"><div class="p-title">Você quer começar do zero</div><p>Sem experiência, sem saber as palavras certas — só com boa vontade</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTEÚDO ===== -->
+<section class="section-conteudo reveal" id="conteudo">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:40px;">
+      <div class="section-label">📖 O que você vai aprender</div>
+      <h2 class="section-title">Conteúdo completo para<br><span class="grad-text">transformar sua família</span></h2>
+    </div>
+    <div class="conteudo-lista">
+      <div class="conteudo-item"><div class="c-num">01</div><div class="c-text">Por que ensinar a criança a orar desde cedo — e como isso forma o caráter para a vida toda</div><span class="c-badge">Fundamentos</span></div>
+      <div class="conteudo-item"><div class="c-num">02</div><div class="c-text">Como criar um ambiente de oração aconchegante em qualquer tipo de casa</div><span class="c-badge">Prático</span></div>
+      <div class="conteudo-item"><div class="c-num">03</div><div class="c-text">Roteiro de 5 minutos para crianças de 3 a 7 anos — pronto para usar hoje à noite</div><span class="c-badge">3-7 anos</span></div>
+      <div class="conteudo-item"><div class="c-num">04</div><div class="c-text">5 orações curtas e lindas para as crianças repetirem — simples e cheias de amor</div><span class="c-badge">3-7 anos</span></div>
+      <div class="conteudo-item"><div class="c-num">05</div><div class="c-text">Atividades criativas: Pote da Gratidão, Estrelinha da Oração, Desenho para Deus e mais</div><span class="c-badge">Atividades</span></div>
+      <div class="conteudo-item"><div class="c-num">06</div><div class="c-text">O que fazer quando a criança não quer orar — sem conflito, sem culpa, sem pressão</div><span class="c-badge">Desafios</span></div>
+      <div class="conteudo-item"><div class="c-num">07</div><div class="c-text">Roteiro de 10 minutos para crianças de 7 a 12 anos com espaço para sentimentos</div><span class="c-badge">7-12 anos</span></div>
+      <div class="conteudo-item"><div class="c-num">08</div><div class="c-text">Como lidar com dúvidas e perguntas difíceis sobre Deus — sem travar e sem mentir</div><span class="c-badge">7-12 anos</span></div>
+      <div class="conteudo-item"><div class="c-num">09</div><div class="c-text">Modelo completo de Diário de Oração Infantil para usar no dia a dia</div><span class="c-badge">Diário</span></div>
+      <div class="conteudo-item"><div class="c-num">10</div><div class="c-text">Os 6 erros mais comuns que afastam a criança da oração — e como evitar cada um</div><span class="c-badge">Erros</span></div>
+      <div class="conteudo-item"><div class="c-num">11</div><div class="c-text">Plano prático de 7 dias para criar o hábito do zero, com roteiro pronto para cada dia</div><span class="c-badge">Plano</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BÔNUS ===== -->
+<section class="section-bonus reveal">
+  <div class="container">
+    <div class="section-label">🎁 Bônus exclusivos</div>
+    <h2 class="section-title" style="margin-bottom:10px;">Você ainda recebe<br><span class="grad-text">esses bônus de presente</span></h2>
+    <p class="section-sub">Incluídos no mesmo livro, sem custo adicional</p>
+    <div class="bonus-grid">
+      <div class="bonus-card"><span class="b-icon">🎯</span><div class="b-title">Quiz com Estatísticas</div><div class="b-desc">8 questões interativas que calculam seu aproveitamento e progresso no conteúdo</div></div>
+      <div class="bonus-card"><span class="b-icon">🧠</span><div class="b-title">Mapa Mental Interativo</div><div class="b-desc">Visualize todo o conteúdo do livro de forma visual e clicável, com links para cada seção</div></div>
+      <div class="bonus-card"><span class="b-icon">✏️</span><div class="b-title">Sistema de Grifos</div><div class="b-desc">Grife o que achar mais importante em 3 cores e gere um resumo automático com 1 clique</div></div>
+      <div class="bonus-card"><span class="b-icon">📊</span><div class="b-title">Painel de Conquistas</div><div class="b-desc">Acompanhe seu progresso com páginas lidas, orações abertas e medalhas de conquista</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DEPOIMENTOS ===== -->
+<section class="section-depoi reveal">
+  <div class="container-wide">
+    <div style="text-align:center;margin-bottom:40px;">
+      <div class="section-label">💬 O que dizem as famílias</div>
+      <h2 class="section-title">Histórias reais de<br><span class="grad-text">famílias que transformaram</span></h2>
+    </div>
+    <div class="depoi-grid">
+      <div class="depoi-card">
+        <div class="depoi-stars">★★★★★</div>
+        <p class="depoi-texto">"Nunca achei que conseguiria criar esse hábito com minha filha de 5 anos. Depois de uma semana usando o guia, ela mesma me pediu para orar antes de dormir. Chorei de emoção."</p>
+        <div class="depoi-autor"><div class="depoi-avatar" style="background:linear-gradient(135deg,#6C4DFF,#FF8FCF)">👩</div><div><div class="depoi-nome">Camila R.</div><div class="depoi-detalhe">Mãe de 2 filhos · São Paulo</div></div></div>
+      </div>
+      <div class="depoi-card">
+        <div class="depoi-stars">★★★★★</div>
+        <p class="depoi-texto">"O que mais me surpreendeu foi a praticidade. Em 5 minutos eu consigo fazer uma oração completa com meus filhos. O roteiro pronto tirou toda a minha insegurança."</p>
+        <div class="depoi-autor"><div class="depoi-avatar" style="background:linear-gradient(135deg,#FFD84D,#FF9D5C)">👨</div><div><div class="depoi-nome">Rodrigo M.</div><div class="depoi-detalhe">Pai de 3 filhos · Belo Horizonte</div></div></div>
+      </div>
+      <div class="depoi-card">
+        <div class="depoi-stars">★★★★★</div>
+        <p class="depoi-texto">"Eu e minha neta de 8 anos lemos o livro juntas. Ela adorou o quiz e ficou orgulhosa quando ganhou as conquistas. Que ferramenta incrível para plantar fé no coração dos pequenos!"</p>
+        <div class="depoi-autor"><div class="depoi-avatar" style="background:linear-gradient(135deg,#5DDC8A,#8ED8FF)">👵</div><div><div class="depoi-nome">Dona Aparecida</div><div class="depoi-detalhe">Avó carinhosa · Goiânia</div></div></div>
+      </div>
+      <div class="depoi-card">
+        <div class="depoi-stars">★★★★★</div>
+        <p class="depoi-texto">"Uso em sala de aula do maternal da nossa igreja. As atividades lúdicas — especialmente o Pote da Gratidão — viraram parte da nossa rotina semanal. As crianças amam!"</p>
+        <div class="depoi-autor"><div class="depoi-avatar" style="background:linear-gradient(135deg,#FF8FCF,#FFD84D)">👩</div><div><div class="depoi-nome">Pastora Juliana</div><div class="depoi-detalhe">Educadora cristã · Curitiba</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GARANTIA ===== -->
+<section class="section-garantia reveal">
+  <div class="container">
+    <div class="garantia-box">
+      <span class="garantia-icon">🛡️</span>
+      <h3 class="garantia-title">Garantia de 7 dias</h3>
+      <p class="garantia-text">Se em 7 dias você não ficar satisfeita com o conteúdo por qualquer motivo, devolvemos 100% do seu investimento. Sem perguntas, sem burocracia. Você não tem nada a perder — só a ganhar uma família que ora junta. 💜</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PREÇO ===== -->
+<section class="section-preco reveal" id="preco">
+  <div class="container">
+    <div class="section-label">💛 Investimento</div>
+    <h2 class="section-title" style="margin-bottom:40px;">Comece hoje a jornada<br><span class="grad-text">de oração em família</span></h2>
+    <div class="preco-box">
+      <div class="preco-label">Livro Digital Interativo</div>
+      <div class="preco-de">De R$ 97,00</div>
+      <div class="preco-por">R$ 37<span style="font-size:1.5rem">,00</span></div>
+      <div class="preco-ou">ou em até 2x de R$ 19,50</div>
+      <div class="preco-includes">
+        <div class="preco-item">30 páginas interativas com conteúdo completo</div>
+        <div class="preco-item">40+ orações clicáveis prontas para usar</div>
+        <div class="preco-item">Atividades para crianças de 3 a 12 anos</div>
+        <div class="preco-item">Roteiros de 5 e 10 minutos prontos</div>
+        <div class="preco-item">Plano de 7 dias para começar do zero</div>
+        <div class="preco-item">Quiz + Mapa Mental + Grifos + Painel</div>
+        <div class="preco-item">Acesso imediato no celular e computador</div>
+        <div class="preco-item">Garantia de 7 dias ou seu dinheiro de volta</div>
+      </div>
+      <a href="https://pay.kiwify.com.br/nZBO9Ek" target="_blank" class="btn-comprar">💛 Quero meu livro agora →</a>
+      <div class="preco-seguranca">
+        <span class="seg-item">🔒 Pagamento seguro</span>
+        <span class="seg-item">⚡ Acesso imediato</span>
+        <span class="seg-item">🛡️ 7 dias de garantia</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section-faq reveal">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:40px;">
+      <div class="section-label">❓ Dúvidas frequentes</div>
+      <h2 class="section-title">Perguntas que<br><span class="grad-text-roxo">talvez você tenha</span></h2>
+    </div>
+    <div class="faq-lista">
+      <div class="faq-item">
+        <div class="faq-pergunta" onclick="toggleFaq(this)">Como funciona o livro digital interativo? <span class="faq-arrow">▼</span></div>
+        <div class="faq-resposta"><div class="faq-resposta-inner">É um arquivo HTML que você acessa direto no navegador (Chrome recomendado). Não precisa baixar nenhum aplicativo. Funciona no celular, tablet e computador. Você clica nos botões, abre orações, faz o quiz e grifa os textos tudo dentro do mesmo arquivo.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pergunta" onclick="toggleFaq(this)">Precisa ter acesso à internet para usar? <span class="faq-arrow">▼</span></div>
+        <div class="faq-resposta"><div class="faq-resposta-inner">O livro fica hospedado online e precisa de internet para acessar. Mas depois de aberto no navegador, a maioria das funções continua funcionando mesmo com conexão fraca. Recomendamos usar no Wi-Fi para a melhor experiência com o áudio narrado.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pergunta" onclick="toggleFaq(this)">Para qual faixa etária é indicado? <span class="faq-arrow">▼</span></div>
+        <div class="faq-resposta"><div class="faq-resposta-inner">O conteúdo é dividido em dois blocos: crianças de 3 a 7 anos (foco em músicas, gestos, repetição e atividades lúdicas) e crianças de 7 a 12 anos (foco em sentimentos, diário de oração, dúvidas e protagonismo espiritual). Cada bloco tem dicas e roteiros específicos para a faixa etária.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pergunta" onclick="toggleFaq(this)">Preciso ter experiência com oração para usar? <span class="faq-arrow">▼</span></div>
+        <div class="faq-resposta"><div class="faq-resposta-inner">De jeito nenhum! O guia foi criado exatamente para pais que não sabem por onde começar. Todas as orações estão prontas e os roteiros são simples de seguir. Você só precisa estar presente — o livro faz o resto.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pergunta" onclick="toggleFaq(this)">Como recebo o acesso após a compra? <span class="faq-arrow">▼</span></div>
+        <div class="faq-resposta"><div class="faq-resposta-inner">Imediatamente após a confirmação do pagamento, você recebe o link de acesso por e-mail e na página de obrigado. O acesso é instantâneo, 24 horas por dia, 7 dias por semana.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pergunta" onclick="toggleFaq(this)">E se eu não me sentir satisfeita? <span class="faq-arrow">▼</span></div>
+        <div class="faq-resposta"><div class="faq-resposta-inner">Você tem 7 dias de garantia total. Se por qualquer motivo não ficar satisfeita, é só entrar em contato e devolvemos 100% do seu investimento. Sem perguntas, sem burocracia.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA FINAL ===== -->
+<section style="position:relative;z-index:1;padding:80px 24px;text-align:center;">
+  <div class="container">
+    <p style="font-size:1.3rem;font-family:'Baloo 2',cursive;font-weight:700;color:rgba(255,255,255,.7);margin-bottom:16px;">Uma última coisa…</p>
+    <h2 class="section-title" style="margin-bottom:16px;">Comece hoje. <span class="grad-text">Uma pequena oração</span><br>pode se tornar uma grande memória.</h2>
+    <p style="color:rgba(255,255,255,.5);margin-bottom:40px;font-size:.95rem;line-height:1.7;">As orações que você vai fazer hoje vão ecoar no coração do seu filho<br>por décadas. Não espere o momento perfeito. Comece agora. 💜</p>
+    <a href="https://pay.kiwify.com.br/nZBO9Ek" target="_blank" class="btn-hero" style="display:inline-flex;" target="_blank">✨ Quero começar agora <span>→</span></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">✦ <span>IA.ndrea Studio</span> — Conteúdo digital cristão com amor ✦</div>
+  <div class="footer-love">Feito com 💜 para famílias cristãs do Brasil</div>
+</footer>
+
+<script>
+// ESTRELAS
+const sc=document.getElementById('stars');
+for(let i=0;i<100;i++){
+  const s=document.createElement('div');s.className='star';
+  const sz=Math.random()*2.5+.5;
+  s.style.cssText=`width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--d:${2+Math.random()*5}s;animation-delay:${Math.random()*5}s;`;
+  sc.appendChild(s);
+}
+
+// SCROLL REVEAL
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');}});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// FAQ
+function toggleFaq(el){
+  const item=el.parentElement;
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+</script>
+</body>
+</html>
